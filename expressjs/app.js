@@ -23,28 +23,38 @@ app.use(express.json())
 //     res.send('lets get biryani tonight')
 // })
 
-app.post('/home',async (req,res)=>{
-    let userData = req.body;
-    //console.log(userData);
+// app.post('/home',async (req,res)=>{
+//     let userData = req.body;
+//     //console.log(userData);
     
-    let file=await fs.readFile("data.json")
-    file=JSON.parse(file)
-    file.push(userData);
-    console.log(file);
-    file=JSON.stringify(file)
-    console.log(file)
-    await fs.writeFile('data.json',file)
-        // console.log(req.query);
-    // console.log(req.headers);
-    // console.log(req.body);
-    res.send('lets get biryani tonight')
-})
-app.get('/users',async(req,res)=>{
-    let file=await fs.readFile("data.json")
-    file=JSON.parse(file)
-    res.status(200).json(file)
+//     let file=await fs.readFile("data.json")
+//     file=JSON.parse(file)
+//     file.push(userData);
+//     console.log(file);
+//     file=JSON.stringify(file)
+//     console.log(file)
+//     await fs.writeFile('data.json',file)
+//         // console.log(req.query);
+//     // console.log(req.headers);
+//     // console.log(req.body);
+//     res.send('lets get biryani tonight')
+// })
+// app.get('/users',async(req,res)=>{
+//     let file=await fs.readFile("data.json")
+//     file=JSON.parse(file)
+//     res.status(200).json(file)
 
+// })
+
+app.use((req,res,next)=>{
+console.log(`server got a request at ${new Date()}`);
+req.payload="azmath"
+next;
 })
+app.use('/user',userRoutes)
+
+
+
 app.listen(port,()=>{
     console.log(`server started on port ${port}`)
 })
