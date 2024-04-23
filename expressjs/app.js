@@ -1,60 +1,23 @@
-import express from "express"
-import fs from "fs/promises"
-const app = express()
-const port = 8080
-app.use(express.json())
- app.get('/',(req,res)=>{
-     res.send('hello world!')
-})
-// app.get('/home',(req,res)=>{
-//     res.send('hi express')
-// } )
-// app.get('/apply',(req,res)=>{
-//     setTimeout(()=>{
-//         res.send('welcome to server')
-//     },2000);
-// })  
-// app.get('/home',(req,res)=>{
-//     let userData = req.body;
-//     console.log(userData);
-//     // console.log(req.query);
-//     // console.log(req.headers);
-//     // console.log(req.body);
-//     res.send('lets get biryani tonight')
-// })
+import express from "express";
+import userRouter from "./users/user.routes.js";
+// const express = require('express');
+// const userRouter = require("./users/user.routes.js");
 
-// app.post('/home',async (req,res)=>{
-//     let userData = req.body;
-//     //console.log(userData);
-    
-//     let file=await fs.readFile("data.json")
-//     file=JSON.parse(file)
-//     file.push(userData);
-//     console.log(file);
-//     file=JSON.stringify(file)
-//     console.log(file)
-//     await fs.writeFile('data.json',file)
-//         // console.log(req.query);
-//     // console.log(req.headers);
-//     // console.log(req.body);
-//     res.send('lets get biryani tonight')
-// })
-// app.get('/users',async(req,res)=>{
-//     let file=await fs.readFile("data.json")
-//     file=JSON.parse(file)
-//     res.status(200).json(file)
+const app = express();
 
-// })
+const port = 8080;
 
-app.use((req,res,next)=>{
-console.log(`server got a request at ${new Date()}`);
-req.payload="azmath"
-next;
-})
-app.use('/user',userRoutes)
+app.use(express.json());
 
+//App LEVEL
+app.use((req, res, next) => {
+  console.log(`Server got a request at ${new Date()}`);
+  req.payload = "ahmed Irshad 72";
+  next();
+});
 
+app.use("/user", userRouter);
 
-app.listen(port,()=>{
-    console.log(`server started on port ${port}`)
-})
+app.listen(port, () => {
+  console.log(`Server is Running at Port ${port}`);
+});
