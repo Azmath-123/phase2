@@ -1,2 +1,8 @@
-[{"user":"ali","email":"alii@gmol.com","password":"$2b$11$4/TlUQnYfMs2EtYesKOKQ.vYEzqrZlIRMTDpc5DfOpcZwqQfcMVUK"}]
+[
+    {
+        "user": "ali",
+        "email": "alii@gmol.com",
+        "password": "$2b$11$4/TlUQnYfMs2EtYesKOKQ.vYEzqrZlIRMTDpc5DfOpcZwqQfcMVUK"
+    }
+]
 []
