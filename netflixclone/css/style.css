@@ -1,62 +1,50 @@
-:root {
-    --primary-color: #e50914;
-
+:root{
+    --primary-coolor:#e50914;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: 'Arial',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    background:#000;
+    color:#999;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    background: #000;
-    color: #999;
+ul{
+    list-style:none;
 }
-
-ul {
-    list-style: none;
+h1,h2,h3,h4{
+    color:#fff;
 }
-
-h1,
-h2,
-h3,
-h4 {
-    color: #fff;
+a{
+    color:#fff;
+    text-decoration:none;
 }
-
-a {
-    color: #fff;
-    text-decoration: none;
+p{
+    margin:0.5rem 0;
 }
-
-p {
-    margin: 0.5rem 0;
+img{
+    width:100%;
+}
+.showcase{
+    width:100%;
+    height:93vh;
+    position:relative;
+    background:url('../img/Netflix-Background.jpg') no-repeat center center/cover;
 
 }
+.showcase-top{
+    position:relative;
+    height:90px;
 
-img {
-    width: 100%;
 }
-
-.showcase {
-    width: 100%;
-    height: 93vh;
-    position: relative;
-    background: url("../img/Netflix-Background.jpg");
-}
-
-.showcase-top img {
-    width: 170px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.showcase-top a {
+.showcase-top img{
+    width:170px;
     position:absolute;
-    top:50%
-
+    top:50%;
+    left:50%;
 }
