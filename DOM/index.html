@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website</title>
+</head>
+
+<body>
+    <h1 id="content">Sallaikum</h1>
+    <button onclick="change()">Click Here</button>
+</body>
+<script>
+    function change() {
+        let heading= document.getElementById("content")
+        if (heading.innerHTML === "Sallaikum") {
+            heading.innerHTML = "Miya Bhai";
+        }
+        else {
+            heading.innerHTML = "Sallaikum";
+        }
+        }
+</script>
+
+</html>

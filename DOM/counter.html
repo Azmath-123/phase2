@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    <p id="countme">0</p>
+    <button onclick="count()">Count++</button>
+    <button onclick="count1()">Count--</button>
+</body>
+<script>
+    let counter =0
+    function count(){
+
+        counter++
+        document.getElementById("countme").innerHTML=counter
+    }
+    function count1(){
+
+        counter--
+        document.getElementById("countme").innerHTML=counter
+    }
+</script>
+</html>
