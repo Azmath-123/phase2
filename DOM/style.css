@@ -1,0 +1,54 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    background:url('DOM/voting.jpg') no-repeat center center/cover;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Button Styles */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Display Text Styles */
+#displayText {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d9534f;
+    margin-top: 20px;
+}
