@@ -30,6 +30,21 @@ function stopVotes(count){
          console.log(`total votes of CR07=${cr07Votes}`);
          console.log(`total votes of m10=${m10Votes}`);
          console.log(`total votes of elon=${elonVotes}`);
+         displayWinner();
     }
+}
+function displayWinner() {
+    let winner = '';
+    if (elonVotes > cr07Votes && elonVotes > m10Votes) {
+        winner = 'Elon';
+    } else if (cr07Votes > elonVotes && cr07Votes > m10Votes) {
+        winner = 'CR07';
+    } else if (m10Votes > elonVotes && m10Votes > cr07Votes) {
+        winner = 'M10';
+    } else {
+        winner = 'It\'s a tie!';
+    }
+
+    alert(`The winner is: ${winner}`);
 }
 stopVotes(totalCount);

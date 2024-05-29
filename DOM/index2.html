@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="this">Change this Tag's Style</p>
+    <button>change</button>    
+</body>
+<script>
+    let para =document.querySelector("#this")
+    let btn = document.querySelector("button")
+    para.setAttribute("hidden",true)
+    btn.addeventListener("click",()=>{
+        para.style.backgroundcolor="green";
+        para.style.fontsize="40px";
+        para.style.color="white";
+        para.removeAttribute("hidden");   
+    })
+</script>
+</html>
