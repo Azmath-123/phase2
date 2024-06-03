@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"
+        integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        table {
+            border: 1px;
+            font-size: medium;
+            text-align: center;
+        }
+
+        th,
+        tr,
+        td {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Lat</th>
+                    <th>Long</th>
+                    <th>Phone</th>
+                    <th>Website</th>
+                    <th>Company</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+
+            </tbody>
+        </table>
+    </center>
+</body>
+<script>
+    async function main() {
+        try {
+            const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+        //  console.log(res)
+        let tBody=document.getElementById("myTable");
+        res.data.forEach((row,i)=>{
+            console.log(row);
+            let newRow = document.createElement("tr");
+            newRow.id=i;
+            for(let j=1;j<=10;j++){
+                let newCol =document.createElement("td")
+                    if(j==1)newCol.innerText=row.id
+                    if(j==2)newCol.innerText=row.name
+                    if(j==3)newCol.innerText=row.username
+                    if(j==4)newCol.innerText=row.email
+                    if(j==5)newCol.innerHTML=`${row.address.street}, ${row.address.suite}, ${row.address.city}, ${row.address.zipcode}`
+                    if(j==6)newCol.innerHTML=row.address.geo.lat
+                    if(j==7)newCol.innerText=row.address.geo.lng
+                    if(j==8)newCol.innerText=row.phone
+                    if(j==9)newCol.innerText=row.website
+                    if(j==10)newCol.innerText=row.company.name
+                    newRow.appendChild(newCol)
+                
+            }
+            tBody.appendChild(newRow)
+        }
+    )
+        }catch(error){
+            console.log(error)
+        }
+    }
+    main()
+</script>
+ 
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"
+    integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    table {
+        border: 1px;
+        font-size: medium;
+        text-align: center;
+    }
+
+    th,
+    tr,
+    td {
+        border: 1px solid #ddd;
+        padding: 5px;
+    }
+</style>
+</head>
+<body>
+    <center>
+        <h1>My Todos</h1>
+        <button>Filter Todos</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>UserId</th>
+                    <th>Title</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+
+            </tbody>
+        </table>
+    </center>
+</body>
+<script>
+    let flag =true
+    let data =[ ]
+    async function main(){
+        try {
+            let res = await axios.get("https://jsonplaceholder.typicode.com/todos")
+            console.log(res)
+            data = res.data
+            createTable(res.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    function createTable(data){
+        let tbody =document.getElementById("myTable")
+        tbody.replaceChildren()
+        data.forEach((row,i) => {
+            let newRow = document.createElement("tr");
+            newRow.id=i;
+            for(let j=1;j<=4;j++){
+                let newCol =document.createElement("td")
+                    if(j==1)newCol.innerText=row.id;
+                    if(j==2)newCol.innerText=row.userId;
+                    if(j==3)newCol.innerText=row.title;
+                    if(j==4)newCol.innerText=row.completed;
+                    newRow.appendChild(newCol)
+            }
+            tbody.appendChild(newRow)
+        })
+    }
+    document.querySelector ("button").addEventListener("click",()=>{
+        const filteredData=data.filter(ele =>ele.completed===flag)
+        flag=!flag
+        createTable(filteredData)
+    })
+    main()
+</script>
+</html>
